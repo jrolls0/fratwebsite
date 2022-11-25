@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FratWatch</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css" href = "about.html" href = "merch.html"  href = "signup.html">
+    </head>
+<body style = "margin-left: 15px">
+
+
+ <!-- If you send this out, change it so you make the frat names and they only get to fill out thier information. This iwll prevent frats from faking other frats information. -->
+    
+    <p>Add your details:</p>
+    
+    <form>
+       Name of Fraternity:<br> <input type="text" id="frat-name">
+       <br>
+    </form>  
+
+    <p>Click the dates below which you will be having a social events and fill in the requested details</p>
+    
+    <!-- For Tuesday  -->
+    <div class = "tuesday-wrapper">
+        <button class="tuesday" onclick="toggleText()">Tuesday</button>
+        
+        <br>
+       
+        <form id='demo'  style='display: none; margin-top: 10px; margin-left: 20px'>
+            Details: <input type="text" id = "details-tuesday" value = "" style = "width:200px">
+        </form>
+    
+        <form id='demo1' style='display: none; margin-top: 10px;margin-left: 20px;'>
+            Start Time: <input type="text" id ="time-tuesday" style = "width:171px">
+        </form>
+
+    </div>
+    
+    <!-- For Thursday  -->  
+    <div class = "thursday-wrapper">
+        <button class="thursday" onclick="toggleText1()">Thursday</button>
+       
+        <br>
+
+        <form id='demo2' style='display: none; margin-top: 10px; margin-left: 20px'>
+            Details: <input type="text" id="details-thursday" style = "width:200px">
+        </form>
+    
+        <form id='demo3' style='display: none; margin-top: 10px;margin-left: 20px;'>
+            Start Time: <input type="text" id="time-thursday"  style = "width:171px">
+        </form>
+    </div>
+    
+    <!-- For Friday  -->  
+    <div class = "friday-wrapper">
+        <button class="friday" onclick="toggleText2()">Friday</button>
+       
+        <br>
+
+        <form id='demo4' style='display: none; margin-top: 10px; margin-left: 20px'>
+            Details: <input type="text" id="details-friday"style = "width:200px">
+        </form>
+    
+        <form id='demo5' style='display: none; margin-top: 10px;margin-left: 20px;'>
+            Start Time: <input type="text" id ="time-friday"  style = "width:171px">
+        </form>
+    </div>
+   
+    <!-- For Saturday  -->  
+    <div class = "saturday-wrapper">
+        <button class="saturday" onclick="toggleText3()">Saturday</button>
+       
+        <br>
+
+        <form id='demo6' style='display: none; margin-top: 10px; margin-left: 20px'>
+            Details: <input type="text" id ="details-saturday" style = "width:200px">
+        </form>
+    
+        <form id='demo7' style='display: none; margin-top: 10px;margin-left: 20px;'>
+            Start Time: <input type="text" id = "time-saturday"  style = "width:171px">
+        </form>
+    </div>
+   
+    <div id="alert" style="color: red"></div>
+    <div id="alert1" style="color: blue"></div>
+    <div id="alert2" style="color: green"></div>
+
+    <div class = submit-button>
+        <button class= 'submit' onclick = "boob()">Submit</button>
+    </div>
+   
+
+   
+   <script>
+       
+        function toggleText() {
+            var text = document.getElementById("demo");
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } 
+            else {
+                text.style.display = "none";
+            }
+           
+            var text1 = document.getElementById("demo1");
+            if (text1.style.display === "none") {
+                text1.style.display = "block";
+            } 
+            else {
+                text1.style.display = "none";
+            }
+        }
+
+        function toggleText1() {
+            var text = document.getElementById("demo2");
+           
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } 
+            
+            else {
+                text.style.display = "none";
+            }
+            var text1 = document.getElementById("demo3");
+           
+            if (text1.style.display === "none") {
+                text1.style.display = "block";
+            } 
+            
+            else {
+                text1.style.display = "none";
+            }
+        } 
+
+        function toggleText2() {
+            var text = document.getElementById("demo4");
+           
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } 
+            
+            else {
+                text.style.display = "none";
+            }
+            var text1 = document.getElementById("demo5");
+           
+            if (text1.style.display === "none") {
+                text1.style.display = "block";
+            } 
+            
+            else {
+                text1.style.display = "none";
+            }
+        }
+       
+        function toggleText3() {
+            var text = document.getElementById("demo6");
+           
+            if (text.style.display === "none") {
+                text.style.display = "block";
+            } 
+            
+            else {
+                text.style.display = "none";
+            }
+            var text1 = document.getElementById("demo7");
+           
+            if (text1.style.display === "none") {
+                text1.style.display = "block";
+            } 
+            
+            else {
+                text1.style.display = "none";
+            }
+        }
+
+        
+         
+        function boob() {
+            const frat = new Object ();
+            
+            frat.name = document.getElementById('frat-name').value;
+         
+            var potter = localStorage.getItem('fratcountertues');
+            var potter1 = localStorage.getItem('fratcounterthurs');
+            var potter2 = localStorage.getItem('fratcounterfri');
+            var potter3 = localStorage.getItem('fratcountersat');
+          
+            if (localStorage.getItem('fratcountertues', potter) == null) {
+                localStorage.setItem('fratcountertues', 0);
+            }
+            if (localStorage.getItem('fratcounterthurs', potter1) == null) {
+                localStorage.setItem('fratcounterthurs', 0);
+            }
+            if (localStorage.getItem('fratcounterfri', potter2) == null) {
+                localStorage.setItem('fratcounterfri', 0);
+            }
+            if (localStorage.getItem('fratcountersat', potter3) == null) {
+                localStorage.setItem('fratcountersat', 0);
+            }
+
+            var tuesdet = document.getElementById('details-tuesday').value;
+            var tuestime = document.getElementById('time-tuesday').value;
+           
+            
+            var thursdet = document.getElementById('details-thursday').value;
+            var thurstime = document.getElementById('time-thursday').value;
+            
+            var fridet = document.getElementById('details-friday').value;
+            var fritime = document.getElementById('time-friday').value;
+            
+            var satdet = document.getElementById('details-saturday').value;
+            var sattime = document.getElementById('time-saturday').value;
+
+           
+            if (tuesdet != "" && tuestime != "") {
+                potter++;
+
+                frat.tuesdaytime = tuesdet;
+                frat.tuesdaydetails = tuestime;
+              
+                var namestringkey = 'frat' + potter + 'tuesdayparty';
+                var tuesdaydetskey = 'frat' + potter + 'tuesdaydetails';
+                var tuesdaytimekey = 'frat' + potter + 'tuesdaytime';
+                
+                localStorage.setItem(namestringkey, frat.name);
+                localStorage.setItem(tuesdaydetskey, tuesdet);
+                localStorage.setItem(tuesdaytimekey, tuestime); 
+             
+                localStorage.setItem('fratcountertues', potter);
+            }
+
+            if (thursdet != "" && thurstime != "") {
+                potter1++;
+
+                frat.thursdaytime =  thursdet;
+                frat.thursdaydetails = thurstime;
+           
+                var namestringkey1 = 'frat' + potter1 + 'thursdayparty';
+                var thursdaydetskey = 'frat' + potter1 + 'thursdaydetails';
+                var thursdaytimekey = 'frat' + potter1 + 'thursdaytime';
+               
+                localStorage.setItem(namestringkey1, frat.name);
+                localStorage.setItem(thursdaydetskey, thursdet);
+                localStorage.setItem(thursdaytimekey, thurstime);
+           
+             
+                localStorage.setItem('fratcounterthurs', potter1);
+            }
+
+            if (fridet != "" && fritime != "") {
+                potter2++;
+                frat.fridaytime =  fridet;
+                frat.fridaydetails = fritime;
+           
+                var namestringkey2 = 'frat' + potter2 + 'fridayparty';
+                var fridaydetskey = 'frat' + potter2 + 'fridaydetails';
+                var fridaytimekey = 'frat' + potter2 + 'fridaytime';
+               
+                localStorage.setItem(namestringkey2, frat.name);
+                localStorage.setItem(fridaydetskey, fridet);
+                localStorage.setItem(fridaytimekey, fritime);
+           
+             
+                localStorage.setItem('fratcounterfri', potter2);
+            }
+
+
+
+            if (satdet != "" && sattime != "") {
+                potter3++;
+                frat.saturdaytime =  satdet;
+                frat.saturdaydetails = sattime;
+           
+                var namestringkey3 = 'frat' + potter3 + 'saturdayparty';
+                var saturdaydetskey = 'frat' + potter3 + 'saturdaydetails';
+                var saturdaytimekey = 'frat' + potter3 + 'saturdaytime';
+               
+                localStorage.setItem(namestringkey3, frat.name);
+                localStorage.setItem(saturdaydetskey, satdet);
+                localStorage.setItem(saturdaytimekey, sattime);
+           
+             
+                localStorage.setItem('fratcountersat', potter3);
+            }
+
+          
+
+            // add friday and saturday
+            
+            // var namestringkey = 'frat' + potter;
+            // var tuesdaydetskey = 'frat' + potter + 'tuesdaydetails';
+            // var tuesdaytimekey = 'frat' + potter + 'tuesdaytime';
+            // var namestringkey1 = 'frat' + potter1;
+            // var thursdaydetskey = 'frat' + potter1 + 'thursdaydetails';
+            // var thursdaytimekey = 'frat' + potter1 + 'thursdaytime';
+
+            // localStorage.setItem(namestringkey, frat.name);
+            // localStorage.setItem(tuesdaydetskey, tuesdet);
+            // localStorage.setItem(tuesdaytimekey, tuestime);
+            // localStorage.setItem(namestringkey1, frat.name);
+            // localStorage.setItem(thursdaydetskey, tuesdet);
+            // localStorage.setItem(thursdaytimekey, tuestime);
+
+            // var cock = localStorage.getItem(namestringkey);
+  
+            // var dick = localStorage.getItem(tuesdaytimekey);
+           
+            // //  document.getElementById('alert').innerHTML = cock;
+            //  document.getElementById('alert1').innerHTML = penis;
+            //  document.getElementById('alert2').innerHTML = dick;
+           
+
+           
+   
+
+            // var temp = 0;
+            // for (let i = 0; i < potter; i++) {
+            //     if (frat.name == frats[i].name) {
+            //         temp++;
+            //     }
+            // }
+            // if (temp == 0) {
+            //     potter++;
+                
+            //     var new_frat = document.getElementById('frat-name');
+
+            // }
+
+            // localStorage.setItem(frats[potter], frat.name);
+            //  var dick = localStorage.getItem('fratcounter');
+            //  document.getElementById('alert2').innerHTML = frats;
+              
+        
+        }
+        
+
+
+
+
+     </script>
+
+</body>
+
+</html>
