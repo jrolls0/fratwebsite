@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <button  class="tuesday" onclick="displaypopup()" style = 'margin-top:60px'>Tuesday</button> -->
+
+<style>
+    .popup {
+      font-size: 50px;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .popup:hover {
+      color: darkblue;
+    }
+    /* .hide {
+        display: none;
+    } */
+    </style>
+    </head>
+    <body>
+    
+    <i onclick= "myFunction(this)" class="popup hide" ></i>
+    
+    <script>
+  
+        function myFunction(x) {
+            x.classList.toggle("hide");
+        }
+    
+        // function displaypopup() {
+        //     document.getElementById('cssPopup').classList.remove('hide');
+        // }
+
+     </script>
+    
+
+
+</body>
+</html>

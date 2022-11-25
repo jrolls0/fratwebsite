@@ -4,9 +4,12 @@
         <title>FratWatch</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css" href = "about.html" href = "merch.html"  href = "signup.html">
-    </head>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="style.css" href="submissions.html" href = "about.html" href = "merch.html"  href = "signup.html" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
+
+
 
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
@@ -27,7 +30,7 @@
         <img class="w3-image" src="https://cdn.totalsororitymove.com/wp-content/uploads/2016/01/161f2ded880d27c53444df9a204a88a0.png" alt="Architecture" width="1500" height="800">
         <div class="w3-display-middle w3-margin-top w3-center">
             <h1 class="w3-xxlarge w3-text-white"> <span
-                    class="w3-hide-small w3-text-light-grey" >Let's get fucked up!</span></h1>
+                    class="w3-hide-small w3-text-light-grey" >Add some text here</span></h1>
 
         </div>
     </header>
@@ -35,12 +38,262 @@
     <!-- Page content -->
     <div class="w3-content w3-padding" style="max-width:1564px">
 
-        <!-- Project Section -->
+        <!-- Top Parties Section -->
         <div class="w3-container w3-padding-32" id="projects">
-            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Top Parties</h3>
+            <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Top Parties this Week</h3>
         </div>
-     </div> 
+        
+       
+
+        <div class="dates-wrapper">
+            <div class="dates">
+                <!-- <button  class="monday" onclick="toggleText()">Monday</button> -->
+                <button  class="tuesday" onclick="tuesday(); displaypopup()">Tuesday</button>
+                <!-- <button  class="wednesday" onclick="toggleText()">Wednesday</button> -->
+                <button  class="thursday" onclick="thursday()">Thursday</button>
+                <button  class="friday" onclick="friday()">Friday</button>
+                <button  class="saturday" onclick="saturday()">Saturday</button>
+                <!-- <button  class="sunday" onclick="toggleText()">Sunday</button> -->
+            </div>
+        </div> 
+     </div>
+     
+
+  
+
+
+     <div class = tuesday-button-wrapper>
+       
+       
+         <div class ="frat0" >
+            <style>
+                .fa {
+                font-size: 25px;
+                margin-top: 27px;
+                margin-right: 30px;
+                cursor: pointer;
+                user-select: none;
+                float: right;
+        
+              
+                }
+                .yits-clicked {
+                    color:blue;
+                }
+
+           
+
+                .hide {
+                    display: none;
+                }
+               
+               
+            </style>
+    
+            <a onclick="changeColor(this)" onclick = "myFunction2(this)" id = "yits" class="fa fa-thumbs-up hide"></a>
+          
+            
+           
+            <script>
+                
+                function displaypopup() {
+                        document.getElementById('yits').classList.remove('hide');
+                }
+
+                function changeColor(x) {
+                    var text = document.getElementById("yits");
+                   
+                    if (text.style.color === "blue") {
+                       text.style.color = "black";
+                    } 
+                    else {
+                        text.style.color = "blue";
+                    }
+                }
+                
+               
+                
+                
+        
+            </script>
+         </div>
+
+
+        <div id="frat0time"></div>
+        <div id="frat0details"></div>
+        <div class ="space">
+                
+        </div>
+        <div id ="frat1" ></div>
+        <div id="frat1time"></div>
+        <div id="frat1details"></div>
+        <div class ="space"></div>
+        <div id="frat2" ></div>
+        <div id="frat2time"></div>
+        <div id="frat2details"></div>
+        <div class ="space"></div>
+        <div id="frat3" ></div>
+        <div id="frat3time"></div>
+        <div id="frat3details"></div>
+        <div class ="space"></div>
+        <div id="frat4" ></div>
+        <div id="frat4time"></div>
+        <div id="frat4details"></div>
+        <div class ="space"></div>
+    
     </div>
+   
+
+     <script>
+      
+     
+     
+                
+        function tuesday() {
+            document.getElementById('frat1').innerHTML = 'No parties today :(';
+
+            var fratcount = parseInt(localStorage.getItem('fratcountertues'));
+              
+            for (var i = 1; i < fratcount + 1; i++) {
+                
+                var cum = document.getElementById("frat" + i);
+                cum.style.color = 'red';
+                cum.style.fontSize= '35px';
+                
+                var name = localStorage.getItem('frat'+ i + 'tuesdayparty');
+                var tuestime = localStorage.getItem('frat' + i + 'tuesdaytime');
+                var tuesdetails = localStorage.getItem('frat' + i + 'tuesdaydetails');
+
+                document.getElementById('frat' + i).innerHTML = name;
+                document.getElementById('frat' + i + 'time').innerHTML =  "- " + "<span style='margin-left: 0px; font-weight: bold'>Starting time: </span>" + tuestime;
+                document.getElementById('frat' + i +'details').innerHTML =  "- " + "<span style='margin-left: 0px; font-weight: bold'>Party details: </span>"  + tuesdetails;
+                }
+            
+            if (fratcount == 0) {
+                document.getElementById('frat1').innerHTML = 'No parties today :(';
+                document.getElementById('frat1time').innerHTML = null;
+                document.getElementById('frat1details').innerHTML = null;
+                fratcount++;
+            }
+        
+            for (let i = fratcount + 1; i < 5; i++) {
+                    document.getElementById('frat' + i).innerHTML = null;
+                    document.getElementById('frat' + i + 'time').innerHTML = null;
+                    document.getElementById('frat' + i +'details').innerHTML = null;
+                }
+         }
+      
+
+        function thursday() {
+            document.getElementById('frat1').innerHTML = 'No parties today :(';
+           
+            var fratcount = parseInt(localStorage.getItem('fratcounterthurs'));
+         
+                   
+            for (var i = 1; i < fratcount + 1; i++) {
+                
+                var cum = document.getElementById("frat1");
+                cum.style.color = 'red';
+                cum.style.fontSize= '35px';
+
+                var name = localStorage.getItem('frat'+ i + 'thursdayparty');
+                var thurstime = localStorage.getItem('frat' + i + 'thursdaytime');
+                var thursdetails = localStorage.getItem('frat' + i + 'thursdaydetails');
+                
+                document.getElementById('frat' + i).innerHTML = name;
+                document.getElementById('frat' + i + 'time').innerHTML =   "- " + "<span style='margin-left: 0px; font-weight: bold'>Starting time: </span>" + thurstime;
+                document.getElementById('frat' + i +'details').innerHTML =   "- " + "<span style='margin-left: 0px; font-weight: bold'>Party details: </span>" + thursdetails;
+             }
+
+            if (fratcount == 0) {
+                document.getElementById('frat1').innerHTML = 'No parties today :(';
+                document.getElementById('frat1time').innerHTML = null;
+                document.getElementById('frat1details').innerHTML = null;
+                fratcount++;
+            }
+                 
+        for (let i = fratcount + 1; i < 5; i++) {
+                document.getElementById('frat' + i).innerHTML = null;
+                document.getElementById('frat' + i + 'time').innerHTML = null;
+                document.getElementById('frat' + i +'details').innerHTML = null;
+            }
+        }
+      
+        function friday() {
+            document.getElementById('frat1').innerHTML = ' No parties today :(';
+           
+            var fratcount = parseInt(localStorage.getItem('fratcounterfri'));
+              
+            for (var i = 1; i < fratcount + 1; i++) {
+               
+                var cum = document.getElementById("frat1");
+                cum.style.color = 'red';
+                cum.style.fontSize= '35px';
+                
+                var name = localStorage.getItem('frat'+ i + 'fridayparty');
+                var fritime = localStorage.getItem('frat' + i + 'fridaytime');
+                var fridetails = localStorage.getItem('frat' + i + 'fridaydetails');
+                
+                document.getElementById('frat' + i).innerHTML = name;
+                document.getElementById('frat' + i + 'time').innerHTML =  "- " + "<span style='margin-left: 0px; font-weight: bold'>Starting time: </span>" + fritime;
+                document.getElementById('frat' + i +'details').innerHTML =   "- " + "<span style='margin-left: 0px; font-weight: bold'>Party details: </span>" + fridetails;
+                }
+            
+            if (fratcount == 0) {
+                document.getElementById('frat1').innerHTML = 'No parties today :(';
+                document.getElementById('frat1time').innerHTML = null;
+                document.getElementById('frat1details').innerHTML = null;
+                fratcount++;
+            }
+        
+            for (let i = fratcount + 1; i < 5; i++) {
+                    document.getElementById('frat' + i).innerHTML = null;
+                    document.getElementById('frat' + i + 'time').innerHTML = null;
+                    document.getElementById('frat' + i +'details').innerHTML = null;
+                }
+         }
+      
+
+        function saturday() {
+            document.getElementById('frat1').innerHTML = 'No parties today :(';
+
+            var fratcount = parseInt(localStorage.getItem('fratcountersat'));
+         
+            for (var i = 1; i < fratcount + 1; i++) {
+                
+                var cum = document.getElementById("frat1");
+                cum.style.color = 'red';
+                cum.style.fontSize= '35px';
+
+                var name = localStorage.getItem('frat'+ i + 'saturdayparty');
+                var sattime = localStorage.getItem('frat' + i + 'saturdaytime');
+                var satdetails = localStorage.getItem('frat' + i + 'saturdaydetails');
+                
+                document.getElementById('frat' + i).innerHTML = name;
+                document.getElementById('frat' + i + 'time').innerHTML =  "- " + "<span style='margin-left: 0px; font-weight: bold'>Starting time: </span>" + sattime;
+                document.getElementById('frat' + i +'details').innerHTML = "- " + "<span style='margin-left: 0px; font-weight: bold'>Party details: </span>"  + satdetails;
+            }
+           
+            if (fratcount == 0) {
+                document.getElementById('frat1').innerHTML = 'No parties today :(';
+                document.getElementById('frat1time').innerHTML = null;
+                document.getElementById('frat1details').innerHTML = null;
+                fratcount++;
+            }
+                 
+        for (let i = fratcount + 1; i < 5; i++) {
+                document.getElementById('frat' + i).innerHTML = null;
+                document.getElementById('frat' + i + 'time').innerHTML = null;
+                document.getElementById('frat' + i +'details').innerHTML = null;
+            }
+        }
+      
+               
+
+               
+
+
+     </script>
 
 
         
@@ -55,8 +308,7 @@
 
     <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
     <footer class="w3-center w3-black w3-padding-16">
-        <p class="w3-small">Fullsend.inc</p>
-    
+        <p class="w3-small">Ferda.inc</p>
     </footer>
 
 </body>
